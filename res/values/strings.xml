@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PttMiner</string>
+    <string name="action_settings">Setting</string>
+    <string name="ptt_stock">Stock</string>
+    <string name="ptt_nba">NBA</string>
+    <string name="ptt_nba_film">NBA Film</string>
+    <string name="ptt_article">Article Content</string>
+
+</resources>
