@@ -60,13 +60,13 @@ public class PttActivity extends FragmentActivity implements
         String url = "";
         if (activityName.equals(ACTIVITY_NBA)) {
             actionBar.setTitle(R.string.ptt_nba);
-            url = "http://www.ptt.cc/bbs/NBA/index.html";
+            url = "https://www.ptt.cc/bbs/NBA/index.html";
         } else if (activityName.equals(ACTIVITY_NBA_FILM)) {
             actionBar.setTitle(R.string.ptt_nba_film);
-            url = "http://www.ptt.cc/bbs/NBA_Film/index.html";
+            url = "https://www.ptt.cc/bbs/NBA_Film/index.html";
         } else if (activityName.equals(ACTIVITY_STOCK)) {
             actionBar.setTitle(R.string.ptt_stock);
-            url = "http://www.ptt.cc/bbs/Stock/index.html";
+            url = "https://www.ptt.cc/bbs/Stock/index.html";
         }
 
         pttManager.setPttArticleListListener(this);

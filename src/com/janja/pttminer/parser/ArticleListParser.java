@@ -2,6 +2,7 @@ package com.janja.pttminer.parser;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
 
@@ -41,7 +42,7 @@ public class ArticleListParser extends PttParser {
             title = titleNode.getText().toString();
         }
 
-        return title;
+        return StringEscapeUtils.unescapeHtml4(title);
     }
 
     private String[] parseUrls(TagNode rootNode) throws XPatherException {
@@ -59,7 +60,7 @@ public class ArticleListParser extends PttParser {
                 boolean isNextUrl = value.contains("¤U­¶");
                 boolean isLastUrl = value.contains("¤W­¶");
 
-                String link = "http://www.ptt.cc/"
+                String link = "https://www.ptt.cc/"
                         + aNode.getAttributeByName("href");
 
                 if (isNextUrl && link != null) {
@@ -125,7 +126,7 @@ public class ArticleListParser extends PttParser {
         if (elements.length > 0) {
             TagNode titleNode = (TagNode) elements[0];
             for (TagNode aNode : titleNode.getElementListByName("a", false)) {
-                link = "http://www.ptt.cc/" + aNode.getAttributeByName("href");
+                link = "https://www.ptt.cc/" + aNode.getAttributeByName("href");
             }
         }
 
@@ -155,7 +156,7 @@ public class ArticleListParser extends PttParser {
             text = childNode.getText().toString();
         }
 
-        return text;
+        return StringEscapeUtils.unescapeHtml4(text);
     }
 
     private String getArticleType(String title) {
@@ -170,6 +171,6 @@ public class ArticleListParser extends PttParser {
         if (start != -1 && end != -1) {
             type = title.substring(start + 1, end);
         }
-        return type;
+        return StringEscapeUtils.unescapeHtml4(type);
     }
 }

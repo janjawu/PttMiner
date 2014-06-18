@@ -2,6 +2,7 @@ package com.janja.pttminer.parser;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.htmlcleaner.TagNode;
 import org.htmlcleaner.XPatherException;
 
@@ -49,7 +50,7 @@ public class ArticleContentParser extends PttParser {
             TagNode contentNode = (TagNode) elements[0];
             allContent = contentNode.getText().toString();
         }
-        return allContent;
+        return StringEscapeUtils.unescapeHtml4(allContent);
     }
 
     private String[] parseHeader(TagNode rootNode) throws XPatherException {
